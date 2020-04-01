@@ -74,7 +74,16 @@ def insertion_sort(items):
     order in front of items, and repeating until all items are in order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Take first unsorted item
-    # TODO: Insert it in sorted order in front of items
-    #Pseudocode
+    # if items length is 0 or 1, stop
+    if len(items) < 2:
+        return
+
+    for index, relevent in enumerate(items):
+        for i, item in enumerate(items[:index]):
+            if relevent < item:
+                items.pop(index)
+                items.insert(i, relevent)
+                break
+
+if __name__ == "__main__":
+    insertion_sort(['A', 'B'])
