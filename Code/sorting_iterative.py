@@ -3,13 +3,11 @@
 
 def is_sorted(items):
     """Return a boolean indicating whether given items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # check each consecutive pair
-    #   if later is < previous
-    #       return false
-    # return true
-
+    Running time: O(n) in the worst case because it would have to run the full 
+                      for loop (dependent on n) in the case that it is sorted 
+                      or is sorted to the last item
+    Memory usage: O(n) because we always have items under consideration with no 
+                      other variables"""
     # check if list length is less than 2 and therefore is in order
     if len(items) < 2:
         return True
@@ -23,8 +21,10 @@ def is_sorted(items):
 def bubble_sort(items):
     """Sort given items by swapping adjacent items that are out of order, and
     repeating until all items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n^2) - worst case if every item needs to be moved.
+                  O(n)   - best case if every item is already sorted; only 
+                      needs one pass.
+    Memory usage: O(n) since we are only working on items."""
     # return early if already sorted
     if is_sorted(items):
         return
@@ -52,8 +52,9 @@ def bubble_sort(items):
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
     unsorted item, and repeating until all items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n^2) because we need to embed for loops to find the
+                      appropriate value for each index (every case)
+    Memory usage: O(n) because we only work on list items."""
     # if items length is 0 or 1, stop
     if len(items) < 2:
         return
@@ -72,8 +73,14 @@ def selection_sort(items):
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
     order in front of items, and repeating until all items are in order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n^2) - (triangular) worst case because each item must 
+                      iterate through all already inserted items to find it's 
+                      place.
+                  O(n)   - best case because it could constantly be inserted to 
+                      the beginning of the already inserted items  
+    Memory usage: O(n) with this implementation since we are only concerned with
+                      changing items one placement at a time which is 2 (a 
+                      constant) operations"""
     # if items length is 0 or 1, stop
     if len(items) < 2:
         return
